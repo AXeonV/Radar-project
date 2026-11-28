@@ -59,11 +59,11 @@ R = c * (fb - fd) / (2 * K); % 从拍频中扣除多普勒频移，计算距离
 tRef = tCSt(maxChirp) + mean(tInC); % tCSt(maxChirp)：选中 chirp 起始时间
                                     % mean(tInc)：用中点估算 chirp 内信号
                                     % 发出到触碰所用时间
-R0 = R - v(1) * tRef; % 扣除选中 chirp 触碰到目标的时间内目标的移动得到初始距离
+Rini = R - v(1) * tRef; % 扣除选中 chirp 触碰到目标的时间内目标的移动得到初始距离
 
 %% 输出 & 作图
 fprintf("拍频：%.2f Hz；多普勒频移：%.2f Hz\n", fb, fd);
-fprintf("触碰时距离：%.2f m；初始距离：%.2f m\n", R, R0);
+fprintf("触碰时距离：%.2f m；初始距离：%.2f m\n", R, Rini);
 fprintf("径向速度：%.2f m/s\n", v(1));
 
 subplot(2, 1, 1);
